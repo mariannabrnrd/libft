@@ -27,7 +27,7 @@ RESET       = \033[0m
 
 SRCS_DIR = srcs
 OBJS_DIR = objs
-INCLUDES = -I inlcude
+INCLUDES = -I include
 
 # **************************************************************************** #
 #                                   SOURCES                                    #
@@ -48,9 +48,8 @@ $(OBJS_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) \
-		-o $(NAME)
-		@printf "$(PLUM)✓ $(NAME) compiled successfully!$(RESET)\n"
+	@ar rcs $(NAME) $(OBJS)
+	@printf "$(PLUM)✓ $(NAME) compiled successfully!$(RESET)\n"
 
 
 
